@@ -7,6 +7,13 @@
         "|___/                                     
 
 
+
+" change my leader key to <space>
+let mapleader=" "
+
+
+
+
 " =====Plug===== "
 
 call plug#begin('~/.config/nvim/plugged')
@@ -49,7 +56,6 @@ Plug 'vim-airline/vim-airline'
 " Python
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'tmhedberg/SimpylFold'
-Plug 'Chiel92/vim-autoformat'
 Plug 'vim-python/python-syntax'
 
 " Go
@@ -90,8 +96,7 @@ let g:vimpy_remove_unused = 1
 
 " python "
 let g:SimpylFold_docstring_preview = 1
-nmap <silent> <space>rn :Semshi rename<CR>
-nnoremap pep :Autoformat<cr>
+"nmap <silent> <space>rn :Semshi rename<CR>
 hi semshiLocal           ctermfg=209 guifg=#ff875f
 hi semshiGlobal          ctermfg=214 guifg=#ffaf00
 hi semshiImported        ctermfg=214 guifg=#ffaf00 cterm=bold gui=bold
@@ -254,6 +259,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <leader>rn <Plug>(coc-rename)
 nnoremap <silent> D :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -262,7 +268,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-autocmd CursorHold * silent call CocActionAsync('highlight')
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 augroup mygroup
@@ -314,6 +319,7 @@ let g:mkdp_auto_close = 0
 let g:mkdp_refresh_slow = 0
 let g:mkdp_command_for_global = 0
 let g:mkdp_open_to_the_world = 0
+map <leader>s :MarkdownPreviewStop<CR>
 
 
 " gruvbox "
@@ -434,7 +440,6 @@ noremap <c-u> <c-i>
 noremap cw z=
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let mapleader=" "
 let b:haveRemappedT=1
 let s:oldmap=maparg('T', 'n')
 let g:deus_termcolors=256
@@ -447,8 +452,6 @@ language message zh_CN.UTF-8
 set autoread
 set encoding=utf-8
 set fileencoding=utf-8
-set termencoding=utf-8
-set fileencoding=chinese
 set fileencodings=ucs-bom,utf-8,chinese
 set langmenu=zh_CN.utf-8
 set showtabline=2
@@ -472,7 +475,6 @@ set lazyredraw
 set shiftwidth=4
 set tabstop=4
 set listchars=tab:>-,trail:-
-set encoding=utf-8
 set mouse=a
 set scrolloff=5
 set backspace=2
@@ -484,7 +486,6 @@ set expandtab
 set autoindent
 set background=dark
 
-map <leader>s :MarkdownPreviewStop<CR>
 map W :w<CR>
 map Q :q<CR>
 map <leader>q :qa<CR>
