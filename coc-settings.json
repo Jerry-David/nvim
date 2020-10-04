@@ -1,7 +1,6 @@
 {
     "coc.preferences.extensionUpdateCheck": "daily",
     "python.linting.enabled": true,
-    "diagnostic.refreshOnInsertMode": true,
     "suggest.noselect": true,
     "suggest.enablePreselect": false,
     "suggest.enablePreview": true,
@@ -35,6 +34,7 @@
     "python.linting.flake8Enabled": false,
     "python.linting.pylintEnabled": false,
     "diagnostic.errorSign": "\uf467",
+    "diagnostic.refreshOnInsertMode": true,
     "diagnostic.warningSign": "\uf071",
     "diagnostic.infoSign": "\uf129",
     "diagnostic.hintSign": "\uf864",
