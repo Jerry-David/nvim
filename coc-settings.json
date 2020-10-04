@@ -1,6 +1,7 @@
 {
     "coc.preferences.extensionUpdateCheck": "daily",
     "python.linting.enabled": true,
+    "python.jediEnabled": true,
     "suggest.noselect": true,
     "suggest.enablePreselect": false,
     "suggest.enablePreview": true,
@@ -31,8 +32,6 @@
         "value": "\uf89f",
         "variable": "\ue71b"
     },
-    "python.linting.flake8Enabled": false,
-    "python.linting.pylintEnabled": false,
     "diagnostic.errorSign": "\uf467",
     "diagnostic.refreshOnInsertMode": true,
     "diagnostic.warningSign": "\uf071",
@@ -47,6 +46,5 @@
     "coc.preferences.formatOnSaveFiletypes": [
         "python",
         "json"
-    ],
-    "python.jediEnabled": true
+    ]
 }

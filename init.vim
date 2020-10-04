@@ -222,7 +222,7 @@ let g:godef_split=2
 
 " coc "
 map yh :CocList yank<CR>
-let g:coc_global_extensions = ['coc-pyls', 'coc-python', 'coc-go', 'coc-syntax', 'coc-pairs', 'coc-emmet', 'coc-vimlsp', 'coc-css', 'coc-json', 'coc-snippets', 'coc-html', 'coc-tsserver', 'coc-yank', 'coc-word', 'coc-eslint', 'coc-bookmark', 'coc-todolist']
+let g:coc_global_extensions = ['coc-python', 'coc-go', 'coc-syntax', 'coc-pairs', 'coc-emmet', 'coc-vimlsp', 'coc-css', 'coc-json', 'coc-snippets', 'coc-html', 'coc-tsserver', 'coc-yank', 'coc-word', 'coc-eslint', 'coc-bookmark', 'coc-todolist']
 set hidden
 set nobackup
 set nowritebackup
