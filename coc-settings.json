@@ -2,6 +2,8 @@
     "coc.preferences.extensionUpdateCheck": "daily",
     "python.linting.enabled": true,
     "python.jediEnabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
     "suggest.noselect": true,
     "suggest.enablePreselect": false,
     "suggest.enablePreview": true,
