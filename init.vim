@@ -142,7 +142,7 @@ map ta :TagbarToggle<cr>
 
 
 " ipdb "
-autocmd Filetype python inoremap de __import__('ipdb').set_trace()
+autocmd Filetype python inoremap debug __import__('ipdb').set_trace()
 autocmd Filetype python noremap nd <esc>/__import__('ipdb').set_trace()<cr>dd
 
 
@@ -537,6 +537,7 @@ map nj 7
 map nk 8
 map nl 9
 map R :e<cr>
+map noh :set nohlsearch<cr>
 
 nnoremap J :-tabnext<CR>
 nnoremap K :+tabnext<CR>
