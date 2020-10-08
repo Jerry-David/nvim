@@ -65,6 +65,7 @@ Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " markdown
+Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'iamcco/markdown-preview.vim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -202,7 +203,7 @@ let g:user_emmet_leader_key='Z'
 
 
 " undotree "
-map U :UndotreeToggle<CR>
+map UN :UndotreeToggle<CR>
 
 
 " go "
@@ -221,7 +222,7 @@ let g:go_highlight_generate_tags = 1
 let g:godef_split=2
 
 " coc "
-map yh :CocList yank<CR>
+map YH :CocList yank<CR>
 let g:coc_global_extensions = ['coc-python', 'coc-go', 'coc-syntax', 'coc-pairs', 'coc-emmet', 'coc-vimlsp', 'coc-css', 'coc-json', 'coc-snippets', 'coc-html', 'coc-tsserver', 'coc-yank', 'coc-word', 'coc-eslint', 'coc-bookmark', 'coc-todolist']
 set hidden
 set nobackup
@@ -446,7 +447,6 @@ let g:deus_termcolors=256
 let g:neoterm_autoscroll=1
 let $DOTVIM = expand('$HOME/.config/nvim')
 
-
 language message zh_CN.UTF-8
 
 set autoread
@@ -515,16 +515,16 @@ map <S-down> 5j
 map <S-up> 5k
 map <S-left> 5h
 map <S-right> 5l
-map <C-j> 5j
-map <C-k> 5k
-map <C-h> 5h
-map <C-l> 5l
+map <S-j> 5j
+map <S-k> 5k
+map <S-h> 5h
+map <S-l> 5l
 map <leader><cr> o<esc>
 map te :set nonumber<cr>:set norelativenumber<cr>:term<cr>
 map <leader>lg :tabe<cr>:set nonumber<cr>:set norelativenumber<cr>:term lazygit<cr>
 map <leader>t :call OpenFloatingWin()<CR>
 map <leader>rc :e ~/.config/nvim/init.vim<cr>
-map py :sp<cr>:term ipython<cr>
+map PY :sp<cr>:term ipython<cr>
 map ; :
 map / ?
 map na 1
@@ -539,8 +539,8 @@ map nl 9
 map R :e<cr>
 map noh :set nohlsearch<cr>
 
-nnoremap J :-tabnext<CR>
-nnoremap K :+tabnext<CR>
+nnoremap <C-j> :-tabnext<CR>
+nnoremap <C-k> :+tabnext<CR>
 nnoremap <leader><cr> o<esc>
 
 filetype on
