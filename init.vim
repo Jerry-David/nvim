@@ -18,6 +18,7 @@ let mapleader=" "
 
 call plug#begin('~/.config/nvim/plugged')
 " vim功能强化
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'lilydjwg/fcitx.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'terryma/vim-multiple-cursors'
@@ -33,6 +34,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'brooth/far.vim'
 Plug 'voldikss/vim-translator'
 Plug 'junegunn/vim-peekaboo'
+Plug 'rbgrouleff/bclose.vim'
+Plug 'francoiscabrol/ranger.vim'
 
 " HTML
 Plug 'mattn/emmet-vim'
@@ -72,22 +75,20 @@ Plug 'iamcco/markdown-preview.vim', { 'do': { -> mkdp#util#install() }, 'for': [
 call plug#end()
 
 
+" which key  "
+nnoremap <leader> :WhichKey '<leader>'<CR>
+nnoremap num :WhichKey 'n'<CR>
+
+
+" ranger "
+let g:ranger_map_keys = 0
+map <leader>ra :tabe<CR>:set nonumber<CR>:set norelativenumber<CR>:Ranger<CR>
+
+
 " far "
 map <C-p>fw :Farf<cr>
 map <C-p>cw :Farr<cr>
 map <C-f>d :Fardo<cr>
-
-
-" tagbar "
-let g:tagbar_type_markdown = {
-    \ 'ctagstype' : 'markdown',
-    \ 'kinds' : [
-        \ 'h:Chapter',
-        \ 'i:Section',
-        \ 'k:Paragraph',
-        \ 'j:Subparagraph'
-    \ ]
-\ }
 
 
 " vimpy "
@@ -320,6 +321,7 @@ let g:mkdp_auto_close = 0
 let g:mkdp_refresh_slow = 0
 let g:mkdp_command_for_global = 0
 let g:mkdp_open_to_the_world = 0
+let g:vim_markdown_folding_style_pythonic = 1
 map <leader>s :MarkdownPreviewStop<CR>
 
 
@@ -423,8 +425,13 @@ func! Run()
         set splitright
         :sp
         :term go run %
+    elseif &filetype == 'cpp'
+        set splitright
+        :sp
+        :term compile %
     endif
 endfunc
+
 
 " =====Function END====="
 
@@ -490,7 +497,6 @@ map W :w<CR>
 map Q :q<CR>
 map <leader>q :qa<CR>
 map <leader>w :wa<CR>
-map c+ <esc>/<++><CR>:noh<cr>v3lw
 map c<left> <c-w>t<c-w>H
 map c<right> <c-w>t<c-w>H
 map c<up> <c-w>t<c-w>K
@@ -536,12 +542,22 @@ map nh 6
 map nj 7
 map nk 8
 map nl 9
+map numa 1
+map nums 2
+map numd 3
+map numf 4
+map numg 5
+map numh 6
+map numj 7
+map numk 8
+map numl 9
 map R :e<cr>
 map noh :set nohlsearch<cr>
 
 nnoremap <C-j> :-tabnext<CR>
 nnoremap <C-k> :+tabnext<CR>
 nnoremap <leader><cr> o<esc>
+nnoremap c+ <esc>/<++><CR>:noh<cr>v3ls
 
 filetype on
 filetype indent on
