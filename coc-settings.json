@@ -3,7 +3,11 @@
     "python.linting.enabled": true,
     "python.jediEnabled": true,
     "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Enabled": false,
+    "python.formatting.provider": "autopep8",
+    "python.sortImports.args": [
+        "isort"
+    ],
     "suggest.noselect": true,
     "suggest.enablePreselect": false,
     "suggest.enablePreview": true,
@@ -34,7 +38,7 @@
         "value": "\uf89f",
         "variable": "\ue71b"
     },
-    "diagnostic.refreshOnInsertMode": false,
+    "diagnostic.refreshOnInsertMode": true,
     "diagnostic.errorSign": "\uf467",
     "diagnostic.warningSign": "\uf071",
     "diagnostic.infoSign": "\uf129",
@@ -47,6 +51,7 @@
     "codeLens.enable": true,
     "coc.preferences.formatOnSaveFiletypes": [
         "python",
+        "cpp",
         "json"
     ],
     "languageserver": {
