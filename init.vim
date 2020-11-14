@@ -211,10 +211,10 @@ map c<down> <c-w>t<c-w>K
 map cr <c-w>r
 map . $
 map r :call Run()<CR>
-map <C-right> :set splitright<CR>:vsplit<CR>
-map <C-left> :set nosplitright<CR>:vsplit<CR>
-map <C-down> :set splitbelow<CR>:split<CR>
-map <C-up> :set nosplitbelow<CR>:split<CR>
+map msp<right> :set splitright<CR>:vsplit<CR>
+map msp<left> :set nosplitright<CR>:vsplit<CR>
+map msp<down> :set splitbelow<CR>:split<CR>
+map msp<up> :set nosplitbelow<CR>:split<CR>
 map <Leader><right> <C-w>l
 map <Leader><up> <C-w>k
 map <Leader><down> <C-w>j
@@ -226,8 +226,8 @@ map csl :vertical resize-5<CR>
 map <C-t> :tabe<CR>
 map <S-down> 5j
 map <S-up> 5k
-map <S-left> 5h
-map <S-right> 5l
+map <C-left> 5h
+map <C-right> 5l
 map <S-j> 5j
 map <S-k> 5k
 map <S-h> 5h
