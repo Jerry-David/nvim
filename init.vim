@@ -17,6 +17,7 @@ let mapleader=" "
 
 call plug#begin('/home/jerry/.config/nvim/plugged')
 " vim功能强化
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'lilydjwg/fcitx.vim'
 Plug 'jiangmiao/auto-pairs'
