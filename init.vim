@@ -7,6 +7,7 @@
 
 
 
+
 " change my leader key to <space>
 let mapleader=" "
 
@@ -215,10 +216,18 @@ map msp<right> :set splitright<CR>:vsplit<CR>
 map msp<left> :set nosplitright<CR>:vsplit<CR>
 map msp<down> :set splitbelow<CR>:split<CR>
 map msp<up> :set nosplitbelow<CR>:split<CR>
+map mspl :set splitright<CR>:vsplit<CR>
+map msph :set nosplitright<CR>:vsplit<CR>
+map mspj :set splitbelow<CR>:split<CR>
+map mspk :set nosplitbelow<CR>:split<CR>
 map <Leader><right> <C-w>l
 map <Leader><up> <C-w>k
 map <Leader><down> <C-w>j
 map <leader><left> <C-w>h
+map <Leader>l <C-w>l
+map <Leader>k <C-w>k
+map <Leader>j <C-w>j
+map <leader>h <C-w>h
 map csk :res -5<CR>
 map csj :res +5<CR>
 map csh :vertical resize+5<CR>
@@ -242,6 +251,7 @@ map ; :
 map / ?
 map R :e<cr>
 map noh :set nohlsearch<cr>
+map figlet :r !figlet %<cr>
 
 " 加载数字配置
 source ~/.config/nvim/number.vim
