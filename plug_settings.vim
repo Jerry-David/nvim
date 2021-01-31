@@ -131,7 +131,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 
 
 " emmet "
-autocmd FileType html,css EmmetInstal
+autocmd FileType html,css,jinja.html EmmetInstal
 let g:user_emmet_install_global = 0
 let g:user_emmet_expandabbr_key = '<c-q>'
 let g:user_emmet_leader_key = '<Tab>'
@@ -265,6 +265,7 @@ map <leader>s :MarkdownPreviewStop<CR>
 
 " gruvbox "
 colorscheme gruvbox
+
 
 " 美化 "
 let g:interestingWordsGUIColors = ['#8CCBEA', '#A4E57E', '#FFDB72', '#FF7272', '#FFB3FF', '#9999FF']

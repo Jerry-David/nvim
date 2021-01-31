@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/jerry/.config/nvim'
+let g:netrw_dirhist_3='/home/jerry/python/flask/xey_system'
+let g:netrw_dirhist_2='/home/jerry/.local/share/fcitx5/rime'
+let g:netrw_dirhist_1='/home/jerry/.config/polybar'

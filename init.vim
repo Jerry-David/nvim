@@ -40,9 +40,12 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 't9md/vim-choosewin'
 Plug 'rhysd/reply.vim', { 'on': ['Repl', 'ReplAuto'] }
 Plug 'gcmt/wildfire.vim'
+Plug 'vim-scripts/restore_view.vim'
 
 " HTML
-Plug 'mattn/emmet-vim', { 'for': 'HTML' }
+Plug 'mattn/emmet-vim'
+Plug 'skammer/vim-css-color'
+Plug 'lepture/vim-jinja'
 
 " 代码片段
 Plug 'honza/vim-snippets'
@@ -50,7 +53,6 @@ Plug 'honza/vim-snippets'
 " 美化
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
-Plug 'vim-python/python-syntax', { 'for': 'python' }
 Plug 'itchyny/vim-cursorword'
 Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-startify'
@@ -60,9 +62,11 @@ Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
 
 " Python
+Plug 'vim-python/python-syntax', { 'for': 'python' }
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for': 'python'}
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
 Plug 'vim-python/python-syntax', { 'for': 'python' }
+Plug 'mgedmin/python-imports.vim'
 
 " Go
 Plug 'fatih/vim-go', { 'tag': '*', 'for': 'go' }
@@ -149,8 +153,9 @@ endfunc
 
 " =====settings===== "
 
-inoremap <C-x> <C-x>s
-inoremap <c-d> <C-\><C-n>:q<cr>
+inoremap ,, <Esc>I
+inoremap .. <Esc>A
+inoremap {% {%  %}<left><left><left>
 
 noremap +y "+y
 noremap +p "+p
@@ -162,11 +167,9 @@ let b:haveRemappedT=1
 let s:oldmap=maparg('T', 'n')
 let g:deus_termcolors=256
 let g:neoterm_autoscroll=1
-let $DOTVIM = expand('$HOME/.config/nvim')
 
 language message zh_CN.UTF-8
 
-set autoread
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,chinese
@@ -175,15 +178,14 @@ set showtabline=2
 set t_Co=256
 set termguicolors
 set number
-set relativenumber
-set cursorline
-set wrap
+set relativenumber "相对行号
+set cursorline "高亮光标所在行
+set wrap "超行换行
 set showcmd
-set wildmenu
-set hlsearch
-set incsearch
+set wildmenu "命令行补全
+set hlsearch "搜索高亮
+set incsearch "智能查找
 set ignorecase
-set expandtab
 set list
 set smartcase
 set updatetime=1
@@ -197,9 +199,11 @@ set smartindent
 set noswapfile
 set modifiable
 set textwidth=100
-set expandtab
-set autoindent
+set autoindent "智能缩进
 set background=dark
+set shiftwidth=4
+set tabstop=4
+set expandtab "替换制表符为空格
 
 map W :w<CR>
 map Q :q<CR>
@@ -211,6 +215,8 @@ map c<up> <c-w>t<c-w>K
 map c<down> <c-w>t<c-w>K
 map cr <c-w>r
 map . $
+map , ^
+map ' %
 map r :call Run()<CR>
 map msp<right> :set splitright<CR>:vsplit<CR>
 map msp<left> :set nosplitright<CR>:vsplit<CR>
@@ -224,10 +230,10 @@ map <Leader><right> <C-w>l
 map <Leader><up> <C-w>k
 map <Leader><down> <C-w>j
 map <leader><left> <C-w>h
-map <Leader>l <C-w>l
-map <Leader>k <C-w>k
-map <Leader>j <C-w>j
-map <leader>h <C-w>h
+map wl <C-w>l
+map wk <C-w>k
+map wj <C-w>j
+map wh <C-w>h
 map csk :res -5<CR>
 map csj :res +5<CR>
 map csh :vertical resize+5<CR>
@@ -250,6 +256,7 @@ map PY :sp<cr>:term ipython<cr>
 map ; :
 map / ?
 map R :e<cr>
+map RL :source $MYVIMRC<cr>
 map noh :set nohlsearch<cr>
 map figlet :r !figlet %<cr>
 
@@ -269,7 +276,6 @@ filetype plugin on
 filetype plugin indent on
 
 autocmd TermOpen term://* startinsert 
-autocmd BufReadPost * if line("'\"")>1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 autocmd Filetype markdown inoremap n1 # <cr><++><esc>ka
 autocmd Filetype markdown inoremap n2 ## <cr><++><esc>ka
 autocmd Filetype markdown inoremap n3 ### <cr><++><esc>ka
@@ -284,6 +290,12 @@ autocmd Filetype markdown inoremap ,p ![avatar](<++>) <++><esc>F(a
 autocmd Filetype markdown inoremap ,a [](<++>) <++><esc>F[a
 autocmd Filetype markdown inoremap ``` ```<cr><++><cr>```<esc>kkA
 autocmd Filetype markdown inoremap -- <cr>---<cr>
+autocmd FileType html set shiftwidth=4
+autocmd FileType html set tabstop=4
+autocmd Filetype html inoremap ,p &nbsp;
+autocmd FileType jinja.html set shiftwidth=4
+autocmd FileType jinja.html set tabstop=4
+autocmd Filetype jinja.html inoremap ,p &nbsp;
 autocmd FileType python set shiftwidth=4
 autocmd FileType python set tabstop=4
 autocmd FileType cpp set shiftwidth=2
@@ -301,7 +313,4 @@ if has('persistent_undo')
     set undodir=~/.config/nvim/tmp/undo,.
 endif
 
-hi Normal guibg=NONE ctermbg=NONE
-
-inoremap ++ <++>
 " =====settings END===== "
