@@ -1,0 +1,71 @@
+#!/bin/bash
+
+clear
+if [ $# -eq 1 ]
+then
+    filename=$1
+    outname=${filename%\.*}
+    typename=${filename#*\.}
+    if ( test "$typename" = "cpp" || "$typename" = "cc" )
+    then
+        echo -n "Compiling..."
+        g++ -o "$outname" "$filename" 2> /tmp/errinfo >&2
+        if [ $? -eq 0 ]
+        then
+            echo -e "       \033[32;1mSuccess!!!\033[0m"
+            echo -e " "
+            echo -e "\033[1;44mRunning...\033[0m"
+            echo "------------------------"
+            ./"$outname"
+            echo "------------------------"
+        else
+            echo -e "       \033[1;31mError!!!\033[0m"
+            echo -e " "
+            echo -e "\033[1;44mError Info:\033[0m"
+            echo "------------------------"
+            cat /tmp/errinfo
+            echo "------------------------"
+        fi
+    fi
+else
+    echo 'Error: No intput filename'
+fi
+
+
+
+
+
+
+
+#!/bin/bash
+
+clear
+if [ $# -eq 1 ]
+then
+    filename=$1
+    outname=${filename%\.*}
+    typename=${filename#*\.}
+    if ( test "$typename" = "py" )
+    then
+        echo -n "Checking..."
+        flake8 ${filename} 2> /tmp/errinfo >&2
+        if [ $? -eq 0 ]
+        then
+            echo -e "       \033[32;1mSuccess!!!\033[0m"
+            echo -e " "
+            echo -e "\033[1;44mRunning...\033[0m"
+            echo "------------------------"
+            python ${filename}
+            echo "------------------------"
+        else
+            echo -e "       \033[1;31mError!!!\033[0m"
+            echo -e " "
+            echo -e "\033[1;44mError Info:\033[0m"
+            echo "------------------------"
+            cat /tmp/errinfo
+            echo "------------------------"
+        fi
+    fi
+else
+    echo 'Error: No intput filename'
+fi
